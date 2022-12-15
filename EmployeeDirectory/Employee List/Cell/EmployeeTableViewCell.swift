@@ -9,7 +9,12 @@ import UIKit
 
 class EmployeeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var employeeImageView: AsyncImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var teamLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     var employee: Employee?
     
     override func awakeFromNib() {
@@ -25,8 +30,21 @@ class EmployeeTableViewCell: UITableViewCell {
     
     func configure() {
         guard let employee = employee else { return }
-        testLabel.text = employee.fullName
-        print("arian")
+        nameLabel.text = employee.fullName
+        teamLabel.text = "Team: \(employee.team)"
+        phoneNumberLabel.isHidden = (employee.phoneNumber == nil)
+        descriptionLabel.isHidden = (employee.biography == nil)
+        phoneNumberLabel.text = "Phone: \(employee.phoneNumber ?? "")"
+        emailAddressLabel.text = "Email: \(employee.emailAddress)"
+        descriptionLabel.text = employee.biography ?? ""
+        
+        if let largeImage = employee.photoURLLarge {
+            employeeImageView.setImage(using: largeImage)
+        } else if let smallImage = employee.photoURLSmall {
+            employeeImageView.setImage(using: smallImage)
+        } else {
+            employeeImageView.image = UIImage(named: "camera")
+        }
     }
     
 }
