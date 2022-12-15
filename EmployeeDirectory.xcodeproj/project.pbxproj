@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		C862ED08294BD415005F602F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED07294BD415005F602F /* AppDelegate.swift */; };
 		C862ED0A294BD415005F602F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED09294BD415005F602F /* SceneDelegate.swift */; };
-		C862ED0C294BD415005F602F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED0B294BD415005F602F /* ViewController.swift */; };
 		C862ED0F294BD415005F602F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C862ED0D294BD415005F602F /* Main.storyboard */; };
 		C862ED11294BD416005F602F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C862ED10294BD416005F602F /* Assets.xcassets */; };
 		C862ED14294BD416005F602F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C862ED12294BD416005F602F /* LaunchScreen.storyboard */; };
 		C862ED1F294BD416005F602F /* EmployeeDirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED1E294BD416005F602F /* EmployeeDirectoryTests.swift */; };
 		C862ED29294BD416005F602F /* EmployeeDirectoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED28294BD416005F602F /* EmployeeDirectoryUITests.swift */; };
 		C862ED2B294BD416005F602F /* EmployeeDirectoryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED2A294BD416005F602F /* EmployeeDirectoryUITestsLaunchTests.swift */; };
+		C862ED3D294BD877005F602F /* EmployeeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED3C294BD877005F602F /* EmployeeListTableViewController.swift */; };
+		C862ED43294BD8E5005F602F /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED42294BD8E5005F602F /* EmployeeListViewModel.swift */; };
+		C862ED45294BD910005F602F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED44294BD910005F602F /* NetworkError.swift */; };
+		C862ED47294BD954005F602F /* APIDataProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED46294BD954005F602F /* APIDataProvidable.swift */; };
+		C862ED49294BDA87005F602F /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED48294BDA87005F602F /* DataProvider.swift */; };
+		C862ED4C294BDABE005F602F /* TopLevelDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED4B294BDABE005F602F /* TopLevelDictionary.swift */; };
+		C862ED4F294BE24B005F602F /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED4D294BE24B005F602F /* EmployeeTableViewCell.swift */; };
+		C862ED50294BE24B005F602F /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C862ED4E294BE24B005F602F /* EmployeeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,6 @@
 		C862ED04294BD414005F602F /* EmployeeDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C862ED07294BD415005F602F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C862ED09294BD415005F602F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C862ED0B294BD415005F602F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C862ED0E294BD415005F602F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C862ED10294BD416005F602F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C862ED13294BD416005F602F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		C862ED24294BD416005F602F /* EmployeeDirectoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmployeeDirectoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C862ED28294BD416005F602F /* EmployeeDirectoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryUITests.swift; sourceTree = "<group>"; };
 		C862ED2A294BD416005F602F /* EmployeeDirectoryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C862ED3C294BD877005F602F /* EmployeeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListTableViewController.swift; sourceTree = "<group>"; };
+		C862ED42294BD8E5005F602F /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
+		C862ED44294BD910005F602F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C862ED46294BD954005F602F /* APIDataProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataProvidable.swift; sourceTree = "<group>"; };
+		C862ED48294BDA87005F602F /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		C862ED4B294BDABE005F602F /* TopLevelDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLevelDictionary.swift; sourceTree = "<group>"; };
+		C862ED4D294BE24B005F602F /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		C862ED4E294BE24B005F602F /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +115,10 @@
 			children = (
 				C862ED07294BD415005F602F /* AppDelegate.swift */,
 				C862ED09294BD415005F602F /* SceneDelegate.swift */,
-				C862ED0B294BD415005F602F /* ViewController.swift */,
-				C862ED0D294BD415005F602F /* Main.storyboard */,
-				C862ED10294BD416005F602F /* Assets.xcassets */,
-				C862ED12294BD416005F602F /* LaunchScreen.storyboard */,
-				C862ED15294BD416005F602F /* Info.plist */,
+				C862ED4A294BDAB3005F602F /* Models */,
+				C862ED40294BD8CB005F602F /* Networking */,
+				C862ED3A294BD663005F602F /* Employee List */,
+				C862ED37294BD442005F602F /* Resources */,
 			);
 			path = EmployeeDirectory;
 			sourceTree = "<group>";
@@ -125,6 +138,54 @@
 				C862ED2A294BD416005F602F /* EmployeeDirectoryUITestsLaunchTests.swift */,
 			);
 			path = EmployeeDirectoryUITests;
+			sourceTree = "<group>";
+		};
+		C862ED37294BD442005F602F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C862ED0D294BD415005F602F /* Main.storyboard */,
+				C862ED10294BD416005F602F /* Assets.xcassets */,
+				C862ED12294BD416005F602F /* LaunchScreen.storyboard */,
+				C862ED15294BD416005F602F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C862ED3A294BD663005F602F /* Employee List */ = {
+			isa = PBXGroup;
+			children = (
+				C862ED3C294BD877005F602F /* EmployeeListTableViewController.swift */,
+				C862ED42294BD8E5005F602F /* EmployeeListViewModel.swift */,
+				C862ED51294BE251005F602F /* Cell */,
+			);
+			path = "Employee List";
+			sourceTree = "<group>";
+		};
+		C862ED40294BD8CB005F602F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C862ED44294BD910005F602F /* NetworkError.swift */,
+				C862ED46294BD954005F602F /* APIDataProvidable.swift */,
+				C862ED48294BDA87005F602F /* DataProvider.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C862ED4A294BDAB3005F602F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C862ED4B294BDABE005F602F /* TopLevelDictionary.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C862ED51294BE251005F602F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C862ED4D294BE24B005F602F /* EmployeeTableViewCell.swift */,
+				C862ED4E294BE24B005F602F /* EmployeeTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C862ED14294BD416005F602F /* LaunchScreen.storyboard in Resources */,
+				C862ED50294BE24B005F602F /* EmployeeTableViewCell.xib in Resources */,
 				C862ED11294BD416005F602F /* Assets.xcassets in Resources */,
 				C862ED0F294BD415005F602F /* Main.storyboard in Resources */,
 			);
@@ -258,9 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C862ED0C294BD415005F602F /* ViewController.swift in Sources */,
 				C862ED08294BD415005F602F /* AppDelegate.swift in Sources */,
+				C862ED47294BD954005F602F /* APIDataProvidable.swift in Sources */,
+				C862ED49294BDA87005F602F /* DataProvider.swift in Sources */,
+				C862ED43294BD8E5005F602F /* EmployeeListViewModel.swift in Sources */,
+				C862ED45294BD910005F602F /* NetworkError.swift in Sources */,
+				C862ED4F294BE24B005F602F /* EmployeeTableViewCell.swift in Sources */,
 				C862ED0A294BD415005F602F /* SceneDelegate.swift in Sources */,
+				C862ED4C294BDABE005F602F /* TopLevelDictionary.swift in Sources */,
+				C862ED3D294BD877005F602F /* EmployeeListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EmployeeDirectory/Info.plist;
+				INFOPLIST_FILE = EmployeeDirectory/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -467,7 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EmployeeDirectory/Info.plist;
+				INFOPLIST_FILE = EmployeeDirectory/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
