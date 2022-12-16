@@ -21,6 +21,8 @@ class EmployeeListTableViewController: UITableViewController {
         super.init(nibName: nibName, bundle: bundle)
         self.viewModel.delegate = self
         self.delegate = viewModel
+        view.backgroundColor = .black
+        tableView.separatorColor = .gray
         setupRefreshControl()
     }
     
@@ -35,8 +37,15 @@ class EmployeeListTableViewController: UITableViewController {
     // MARK: - Helper Methods
     private func setupRefreshControl() {
         refreshControl = UIRefreshControl()
+        refreshControl?.tintColor = .gray
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
-        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        let refreshMessageString = "Pull to refresh"
+        let range = (refreshMessageString as NSString).range(of: refreshMessageString)
+        
+        var refreshMessage = NSMutableAttributedString(string: refreshMessageString)
+        refreshMessage.addAttribute(.foregroundColor, value: UIColor.gray, range: range)
+        
+        refreshControl?.attributedTitle = refreshMessage
         refreshControl?.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl!)
     }
@@ -76,8 +85,18 @@ class EmployeeListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+//        return 200
+        return UITableView.automaticDimension
     }
 }
 
-extension EmployeeListTableViewController: EmployeeListViewModelDelegate {}
+extension EmployeeListTableViewController: EmployeeListViewModelDelegate {
+    func displayAlert(with error: Error) {
+        let alertController = UIAlertController(title: "An error occurred", message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: { [weak self] in
+            self?.refreshControl?.endRefreshing()
+        })
+    }
+}

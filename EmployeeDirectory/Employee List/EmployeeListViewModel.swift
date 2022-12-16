@@ -7,7 +7,9 @@
 
 import Foundation
 
-protocol EmployeeListViewModelDelegate: EmployeeListTableViewController {}
+protocol EmployeeListViewModelDelegate: EmployeeListTableViewController {
+    func displayAlert(with error: Error)
+}
 
 class EmployeeListViewModel {
     
@@ -35,6 +37,9 @@ class EmployeeListViewModel {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.delegate?.displayAlert(with: error)                    
+                }
             }
         }
     }
