@@ -22,7 +22,6 @@ class EmployeeListTableViewController: UITableViewController {
         self.viewModel.delegate = self
         self.delegate = viewModel
         setupRefreshControl()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +60,7 @@ class EmployeeListTableViewController: UITableViewController {
 
         cell.employee = viewModel.topLevelDictionary?.employees[indexPath.row]
         cell.configure()
-
+        
         return cell
     }
 
@@ -74,11 +73,4 @@ class EmployeeListTableViewController: UITableViewController {
     }
 }
 
-extension EmployeeListTableViewController: EmployeeListViewModelDelegate {
-    func didEndRefreshing() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
-        }
-    }
-}
+extension EmployeeListTableViewController: EmployeeListViewModelDelegate {}

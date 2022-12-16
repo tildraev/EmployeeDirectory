@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol EmployeeListViewModelDelegate: EmployeeListTableViewController {
-    func didEndRefreshing()
-}
+protocol EmployeeListViewModelDelegate: EmployeeListTableViewController {}
 
 class EmployeeListViewModel {
     
@@ -22,13 +20,18 @@ class EmployeeListViewModel {
         initiateNetworkCall()
     }
     
-    private func initiateNetworkCall() {
+    private func initiateNetworkCall(fromRefresh: Bool = false) {
         guard let url = URL(string: DataProvider.urlString) else { return }
         dataProvider.fetch(from: url) { result in
             switch result {
             case .success(let topLevelDictionary):
                 self.topLevelDictionary = topLevelDictionary
-                self.delegate?.didEndRefreshing()
+                if fromRefresh {
+                    DispatchQueue.main.async {
+                        self.delegate?.refreshControl?.endRefreshing()
+                        self.delegate?.tableView.reloadData()
+                    }
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -38,6 +41,6 @@ class EmployeeListViewModel {
 
 extension EmployeeListViewModel: EmployeeListTableViewControllerDelegate {
     func didRequestRefresh() {
-        initiateNetworkCall()
+        initiateNetworkCall(fromRefresh: true)
     }
 }

@@ -41,3 +41,4 @@ enum EmployeeType: String, Codable {
     case partTime = "PART_TIME"
     case contractor = "CONTRACTOR"
 }
+

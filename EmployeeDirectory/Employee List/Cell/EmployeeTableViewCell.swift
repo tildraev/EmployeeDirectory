@@ -17,19 +17,9 @@ class EmployeeTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     var employee: Employee?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        configure()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
+        employee = nil
         employeeImageView.image = UIImage(named: "camera")
         nameLabel.text = ""
         teamLabel.text = ""
@@ -48,15 +38,16 @@ class EmployeeTableViewCell: UITableViewCell {
         emailAddressLabel.text = "Email: \(employee.emailAddress)"
         descriptionLabel.text = employee.biography ?? ""
         
-        DispatchQueue.main.async {
-            if let largeImage = employee.photoURLLarge {
-                self.employeeImageView.setImage(using: largeImage, from: employee.uuid)
-            } else if let smallImage = employee.photoURLSmall {
-                self.employeeImageView.setImage(using: smallImage, from: employee.uuid)
-            } else {
-                self.employeeImageView.image = UIImage(named: "camera")
+        if let cachedImage = App.shared.imageCache.object(forKey: NSString(string: employee.uuid)) {
+            DispatchQueue.main.async {
+                self.employeeImageView.image = cachedImage
             }
-        }
+        } else if let largeImage = employee.photoURLLarge {
+            self.employeeImageView.setImage(using: largeImage, from: employee.uuid)
+        } else if let smallImage = employee.photoURLSmall {
+            self.employeeImageView.setImage(using: smallImage, from: employee.uuid)
+        } else {
+            self.employeeImageView.image = UIImage(named: "camera")
+        }   
     }
-    
 }
