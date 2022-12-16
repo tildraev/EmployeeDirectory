@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B6CA41DD-214C-4FB0-AE6F-A065C668B628"
+            uuid = "D7BE498D-5295-4683-93EF-F2B23C65F4B1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EmployeeDirectory/Employee List/Cell/EmployeeTableViewCell.swift"
+            filePath = "EmployeeDirectory/Employee List/EmployeeListTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "configure()"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "didEndRefreshing()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B6CA41DD-214C-4FB0-AE6F-A065C668B628 - e8b4082eeb08f58b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EmployeeDirectory.EmployeeTableViewCell.configure() -&gt; ()"
-                  moduleName = "EmployeeDirectory"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arianmohajer/Desktop/Arian/Developer/EmployeeDirectory/EmployeeDirectory/Employee%20List/Cell/EmployeeTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "53">
-               </Location>
-               <Location
-                  uuid = "B6CA41DD-214C-4FB0-AE6F-A065C668B628 - e8b4082eeb08f58b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EmployeeDirectory.EmployeeTableViewCell.configure() -&gt; ()"
-                  moduleName = "EmployeeDirectory"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arianmohajer/Desktop/Arian/Developer/EmployeeDirectory/EmployeeDirectory/Employee%20List/Cell/EmployeeTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "110">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3E06876-D3A3-4974-83AB-D4BCDC31E782"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmployeeDirectory/Employee List/EmployeeListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "didRequestRefresh()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,14 +7,22 @@
 
 import UIKit
 
+protocol EmployeeListTableViewControllerDelegate: EmployeeListViewModel {
+    func didRequestRefresh()
+}
+
 class EmployeeListTableViewController: UITableViewController {
 
     var viewModel: EmployeeListViewModel
+    weak var delegate: EmployeeListTableViewControllerDelegate?
     
     override init(nibName: String?, bundle: Bundle?) {
         self.viewModel = EmployeeListViewModel()
         super.init(nibName: nibName, bundle: bundle)
-        tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
+        self.viewModel.delegate = self
+        self.delegate = viewModel
+        setupRefreshControl()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +31,19 @@ class EmployeeListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    // MARK: - Helper Methods
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl!)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        delegate?.didRequestRefresh()
     }
 
     // MARK: - Table view data source
@@ -101,4 +121,12 @@ class EmployeeListTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension EmployeeListTableViewController: EmployeeListViewModelDelegate {
+    func didEndRefreshing() {
+        DispatchQueue.main.async {
+            self.refreshControl?.endRefreshing()
+        }
+    }
 }

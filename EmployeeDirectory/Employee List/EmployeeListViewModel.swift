@@ -7,10 +7,15 @@
 
 import Foundation
 
+protocol EmployeeListViewModelDelegate: EmployeeListTableViewController {
+    func didEndRefreshing()
+}
+
 class EmployeeListViewModel {
     
     let dataProvider: DataProvider
     var topLevelDictionary: TopLevelDictionary?
+    weak var delegate: EmployeeListViewModelDelegate?
     
     init() {
         dataProvider = DataProvider()
@@ -23,9 +28,16 @@ class EmployeeListViewModel {
             switch result {
             case .success(let topLevelDictionary):
                 self.topLevelDictionary = topLevelDictionary
+                self.delegate?.didEndRefreshing()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+extension EmployeeListViewModel: EmployeeListTableViewControllerDelegate {
+    func didRequestRefresh() {
+        initiateNetworkCall()
     }
 }

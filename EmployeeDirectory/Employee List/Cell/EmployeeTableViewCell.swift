@@ -28,6 +28,16 @@ class EmployeeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        employeeImageView.image = UIImage(named: "camera")
+        nameLabel.text = ""
+        teamLabel.text = ""
+        phoneNumberLabel.text = ""
+        emailAddressLabel.text = ""
+        descriptionLabel.text = ""
+    }
+    
     func configure() {
         guard let employee = employee else { return }
         nameLabel.text = employee.fullName
@@ -38,12 +48,14 @@ class EmployeeTableViewCell: UITableViewCell {
         emailAddressLabel.text = "Email: \(employee.emailAddress)"
         descriptionLabel.text = employee.biography ?? ""
         
-        if let largeImage = employee.photoURLLarge {
-            employeeImageView.setImage(using: largeImage)
-        } else if let smallImage = employee.photoURLSmall {
-            employeeImageView.setImage(using: smallImage)
-        } else {
-            employeeImageView.image = UIImage(named: "camera")
+        DispatchQueue.main.async {
+            if let largeImage = employee.photoURLLarge {
+                self.employeeImageView.setImage(using: largeImage)
+            } else if let smallImage = employee.photoURLSmall {
+                self.employeeImageView.setImage(using: smallImage)
+            } else {
+                self.employeeImageView.image = UIImage(named: "camera")
+            }
         }
     }
     
