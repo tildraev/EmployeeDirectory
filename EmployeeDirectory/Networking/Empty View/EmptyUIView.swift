@@ -9,10 +9,10 @@ import UIKit
 
 class EmptyUIView: UIView {
 
-    
     let emptyLabel: UILabel = {
         let label = UILabel()
         label.text = "No employees found"
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,5 +33,4 @@ class EmptyUIView: UIView {
             emptyLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-
 }

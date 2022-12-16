@@ -41,10 +41,8 @@ class EmployeeListTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
         let refreshMessageString = "Pull to refresh"
         let range = (refreshMessageString as NSString).range(of: refreshMessageString)
-        
-        var refreshMessage = NSMutableAttributedString(string: refreshMessageString)
+        let refreshMessage = NSMutableAttributedString(string: refreshMessageString)
         refreshMessage.addAttribute(.foregroundColor, value: UIColor.gray, range: range)
-        
         refreshControl?.attributedTitle = refreshMessage
         refreshControl?.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl!)
@@ -76,7 +74,6 @@ class EmployeeListTableViewController: UITableViewController {
 
         cell.employee = viewModel.topLevelDictionary?.employees[indexPath.row]
         cell.configure()
-        
         return cell
     }
 
@@ -85,7 +82,6 @@ class EmployeeListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 200
         return UITableView.automaticDimension
     }
 }

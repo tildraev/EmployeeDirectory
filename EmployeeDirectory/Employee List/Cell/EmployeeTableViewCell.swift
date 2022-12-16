@@ -34,20 +34,30 @@ class EmployeeTableViewCell: UITableViewCell {
         teamLabel.text = "Team: \(employee.team)"
         phoneNumberLabel.isHidden = (employee.phoneNumber == nil)
         descriptionLabel.isHidden = (employee.biography == nil)
-        phoneNumberLabel.text = "Phone: \(employee.phoneNumber ?? "")"
+        phoneNumberLabel.text = "Phone: \(formatPhoneNumber(number: employee.phoneNumber))"
         emailAddressLabel.text = "Email: \(employee.emailAddress)"
         descriptionLabel.text = employee.biography ?? ""
         
-        if let cachedImage = App.shared.imageCache.object(forKey: NSString(string: employee.uuid)) {
-            DispatchQueue.main.async {
-                self.employeeImageView.image = cachedImage
-            }
-        } else if let largeImage = employee.photoURLLarge {
+        if let largeImage = employee.photoURLLarge {
             self.employeeImageView.setImage(using: largeImage, from: employee.uuid)
         } else if let smallImage = employee.photoURLSmall {
             self.employeeImageView.setImage(using: smallImage, from: employee.uuid)
         } else {
             self.employeeImageView.image = UIImage(named: "camera")
         }   
+    }
+    
+    func formatPhoneNumber(number: String?) -> String {
+        guard let number = number else {
+            return ""
+        }
+        
+        var formattedNumber = number
+        formattedNumber.insert("(", at: number.startIndex)
+        formattedNumber.insert(")", at: number.index(number.startIndex, offsetBy: 4))
+        formattedNumber.insert(" ", at: number.index(number.startIndex, offsetBy: 5))
+        formattedNumber.insert("-", at: number.index(number.startIndex, offsetBy: 9))
+//        welcome.insert("!", at: welcome.index(welcome.startIndex, offsetBy: 3))
+        return formattedNumber
     }
 }

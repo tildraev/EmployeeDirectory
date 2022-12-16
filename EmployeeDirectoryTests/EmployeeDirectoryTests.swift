@@ -10,27 +10,46 @@ import XCTest
 
 class EmployeeDirectoryTests: XCTestCase {
 
-    override func setUpWithError() throws {
+    var employeeListViewModel: EmployeeListViewModel!
+    
+    override func setUp() {
+        employeeListViewModel = EmployeeListViewModel()
+        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
+        employeeListViewModel = nil
+        super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testEmployeeListNetworkCall() {
+        employeeListViewModel.initiateNetworkCall(urlString: DataProvider.urlString, completion: {
+            XCTAssertNotNil(self.employeeListViewModel.topLevelDictionary)
+        })
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testEmployeeListNetworkCallNotEmpty() {
+        employeeListViewModel.initiateNetworkCall(urlString: DataProvider.urlString, completion: {
+            if let employeeList = self.employeeListViewModel.topLevelDictionary?.employees {
+                XCTAssertTrue(!employeeList.isEmpty)
+            }
+        })
+    }
+    
+    func testEmptyNetworkCall() {
+        employeeListViewModel.initiateNetworkCall(urlString: DataProvider.emptyURLString, completion: {
+            XCTAssertNil(self.employeeListViewModel.topLevelDictionary)
+        })
+    }
+    
+    func testMalformedNetworkCall() {
+        employeeListViewModel.initiateNetworkCall(urlString: DataProvider.malformedURLString, completion: {
+            if let employeeList = self.employeeListViewModel.topLevelDictionary?.employees {
+                XCTAssertTrue(employeeList.isEmpty)
+            }
+        })
     }
 
 }

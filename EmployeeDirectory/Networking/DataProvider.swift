@@ -14,6 +14,8 @@ protocol DataProvidable {
 struct DataProvider: APIDataProvidable, DataProvidable {
     
     static var urlString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
+    static var malformedURLString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
+    static var emptyURLString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
     
     func fetch(from urlString: String, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
         guard let url = URL(string: urlString) else {
@@ -37,19 +39,3 @@ struct DataProvider: APIDataProvidable, DataProvidable {
         }
     }
 }
-
-
-/*
- We have provided an endpoint, which when called, returns a dictionary containing a JSON array, containing employee information for a fictitious list of employees. Each item in the array represents an employee.
-
- https://s3.amazonaws.com/sq-mobile-interview/employees.json
- There are also other endpoints you can call to simulate error states such as malformed employees, and an empty employee list:
-
- https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json
- https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json
- If any employee is malformed, it is fine to invalidate the entire list of employees in the response - there is no need to exclude only malformed employees.
-
- If there are no employees to show, the app should present an empty state view instead of an empty list.
-
- There is no pagination API - the endpoint returns the full list of employees. The endpoint is also not authenticated.
- */

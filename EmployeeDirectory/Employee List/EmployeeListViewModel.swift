@@ -16,16 +16,16 @@ class EmployeeListViewModel {
     let dataProvider: DataProvider
     var topLevelDictionary: TopLevelDictionary?
     weak var delegate: EmployeeListViewModelDelegate?
-    var errorMessage: String?
+    var urlToUse: String = DataProvider.urlString
     
     init() {
         dataProvider = DataProvider()
-        initiateNetworkCall()
+        initiateNetworkCall(urlString: DataProvider.urlString, completion: nil)
     }
     
-    private func initiateNetworkCall(fromRefresh: Bool = false) {
+    func initiateNetworkCall(urlString: String, fromRefresh: Bool = false, completion: (() -> Void)?) {
         
-        dataProvider.fetch(from: DataProvider.urlString) { result in
+        dataProvider.fetch(from: urlString) { result in
             switch result {
             case .success(let topLevelDictionary):
                 self.topLevelDictionary = topLevelDictionary
@@ -47,6 +47,6 @@ class EmployeeListViewModel {
 
 extension EmployeeListViewModel: EmployeeListTableViewControllerDelegate {
     func didRequestRefresh() {
-        initiateNetworkCall(fromRefresh: true)
+        initiateNetworkCall(urlString: urlToUse, fromRefresh: true, completion: nil)
     }
 }
