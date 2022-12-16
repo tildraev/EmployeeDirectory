@@ -17,7 +17,7 @@ Initially, approximately 3 hours with an additional 1 hour for code cleanup/UI c
 I don't believe so. I would add more screens for employee detail, but the prompt specifically stated not to add any additional screens.
 
 ## What do you think is the weakest part of your project?
-With more time, I think a collection view with clever UI (think home screen app icons on an iPhone, each indicating an employee) would make this look much better. Given the time frame, I chose to go with a table view.
+With more time, I think a collection view with clever UI (think home screen app icons on an iPhone, each indicating an employee) would make this look much better. Given the time frame, I chose to go with a table view. I focused on Phone/iPod display here. I'm sure the UI could be improved if developing for tablets.
 
 ## Did you copy any code or dependencies? Please make sure to attribute them here!
 General URL session stuff from previous projects. The APIDataProvidable and DataProvidable protocols were used in previous projects and I love the layer of abstraction they provide. 
