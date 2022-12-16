@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C80AA9F0294BE67400F02661 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80AA9EF294BE67400F02661 /* AsyncImageView.swift */; };
+		C80AA9F3294BF27800F02661 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80AA9F2294BF27800F02661 /* App.swift */; };
 		C862ED08294BD415005F602F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED07294BD415005F602F /* AppDelegate.swift */; };
 		C862ED0A294BD415005F602F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862ED09294BD415005F602F /* SceneDelegate.swift */; };
 		C862ED0F294BD415005F602F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C862ED0D294BD415005F602F /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		C80AA9EF294BE67400F02661 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		C80AA9F2294BF27800F02661 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		C862ED04294BD414005F602F /* EmployeeDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C862ED07294BD415005F602F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C862ED09294BD415005F602F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C80AA9F1294BF26800F02661 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C80AA9F2294BF27800F02661 /* App.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C862ECFB294BD414005F602F = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 			children = (
 				C862ED07294BD415005F602F /* AppDelegate.swift */,
 				C862ED09294BD415005F602F /* SceneDelegate.swift */,
+				C80AA9F1294BF26800F02661 /* App */,
 				C862ED4A294BDAB3005F602F /* Models */,
 				C862ED40294BD8CB005F602F /* Networking */,
 				C862ED3A294BD663005F602F /* Employee List */,
@@ -327,6 +338,7 @@
 				C862ED47294BD954005F602F /* APIDataProvidable.swift in Sources */,
 				C862ED49294BDA87005F602F /* DataProvider.swift in Sources */,
 				C80AA9F0294BE67400F02661 /* AsyncImageView.swift in Sources */,
+				C80AA9F3294BF27800F02661 /* App.swift in Sources */,
 				C862ED43294BD8E5005F602F /* EmployeeListViewModel.swift in Sources */,
 				C862ED45294BD910005F602F /* NetworkError.swift in Sources */,
 				C862ED4F294BE24B005F602F /* EmployeeTableViewCell.swift in Sources */,

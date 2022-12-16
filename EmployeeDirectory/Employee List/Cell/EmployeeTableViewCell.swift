@@ -50,9 +50,9 @@ class EmployeeTableViewCell: UITableViewCell {
         
         DispatchQueue.main.async {
             if let largeImage = employee.photoURLLarge {
-                self.employeeImageView.setImage(using: largeImage)
+                self.employeeImageView.setImage(using: largeImage, from: employee.uuid)
             } else if let smallImage = employee.photoURLSmall {
-                self.employeeImageView.setImage(using: smallImage)
+                self.employeeImageView.setImage(using: smallImage, from: employee.uuid)
             } else {
                 self.employeeImageView.image = UIImage(named: "camera")
             }
