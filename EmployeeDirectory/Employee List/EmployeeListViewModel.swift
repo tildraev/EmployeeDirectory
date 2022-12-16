@@ -16,7 +16,7 @@ class EmployeeListViewModel {
     let dataProvider: DataProvider
     var topLevelDictionary: TopLevelDictionary?
     weak var delegate: EmployeeListViewModelDelegate?
-    var urlToUse: String = DataProvider.malformedURLString
+    var urlToUse: String = DataProvider.workingURLString
     
     init() {
         dataProvider = DataProvider()

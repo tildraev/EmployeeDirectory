@@ -13,7 +13,7 @@ protocol DataProvidable {
 
 struct DataProvider: APIDataProvidable, DataProvidable {
     
-    static var urlString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
+    static var workingURLString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
     static var malformedURLString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
     static var emptyURLString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
     
