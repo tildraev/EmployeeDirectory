@@ -52,7 +52,14 @@ class EmployeeListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.topLevelDictionary?.employees.count ?? 0
+        let tableViewCount = viewModel.topLevelDictionary?.employees.count ?? 0
+        
+        if tableViewCount == 0 {
+            let emptyUIView = EmptyUIView(frame: view.bounds)
+            tableView.backgroundView = emptyUIView
+        }
+        
+        return tableViewCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

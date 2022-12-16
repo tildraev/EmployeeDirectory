@@ -14,6 +14,7 @@ class EmployeeListViewModel {
     let dataProvider: DataProvider
     var topLevelDictionary: TopLevelDictionary?
     weak var delegate: EmployeeListViewModelDelegate?
+    var errorMessage: String?
     
     init() {
         dataProvider = DataProvider()
@@ -21,8 +22,8 @@ class EmployeeListViewModel {
     }
     
     private func initiateNetworkCall(fromRefresh: Bool = false) {
-        guard let url = URL(string: DataProvider.urlString) else { return }
-        dataProvider.fetch(from: url) { result in
+        
+        dataProvider.fetch(from: DataProvider.urlString) { result in
             switch result {
             case .success(let topLevelDictionary):
                 self.topLevelDictionary = topLevelDictionary

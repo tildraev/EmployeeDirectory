@@ -8,14 +8,19 @@
 import Foundation
 
 protocol DataProvidable {
-    func fetch(from url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void)
+    func fetch(from urlString: String, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void)
 }
 
 struct DataProvider: APIDataProvidable, DataProvidable {
     
     static var urlString: String = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
     
-    func fetch(from url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
+    func fetch(from urlString: String, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.invalidURL(urlString)))
+            return
+        }
+        
         let request = URLRequest(url: url)
         perform(request) { result in
             switch result {
@@ -24,7 +29,7 @@ struct DataProvider: APIDataProvidable, DataProvidable {
                     let decodedData = try JSONDecoder().decode(TopLevelDictionary.self, from: data)
                     completion(.success(decodedData))
                 } catch {
-                    completion(.failure(.thrownError(error)))
+                    completion(.failure(.unableToDecode))
                 }
             case .failure(let error):
                 completion(.failure(.thrownError(error)))
