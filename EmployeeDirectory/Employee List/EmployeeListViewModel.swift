@@ -16,15 +16,14 @@ class EmployeeListViewModel {
     let dataProvider: DataProvider
     var topLevelDictionary: TopLevelDictionary?
     weak var delegate: EmployeeListViewModelDelegate?
-    var urlToUse: String = DataProvider.urlString
+    var urlToUse: String = DataProvider.malformedURLString
     
     init() {
         dataProvider = DataProvider()
-        initiateNetworkCall(urlString: DataProvider.urlString, completion: nil)
+        initiateNetworkCall(urlString: urlToUse, completion: nil)
     }
     
     func initiateNetworkCall(urlString: String, fromRefresh: Bool = false, completion: (() -> Void)?) {
-        
         dataProvider.fetch(from: urlString) { result in
             switch result {
             case .success(let topLevelDictionary):
